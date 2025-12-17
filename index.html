@@ -115,16 +115,20 @@
                 }
             };
 
-            // 이미지를 못 찾으면 확장자를 jpg, jpeg 순서로 바꿔서 찾아보는 똑똑한 기능
+            // 이미지를 못 찾으면 확장자를 jpg, jpeg, PNG, JPG 순서로 바꿔서 찾아보는 똑똑한 기능
             const handleImgError = (type) => {
                 if(type === 'logo') {
                     if (logo === './logo.png') setLogo('./logo.jpg');
                     else if (logo === './logo.jpg') setLogo('./logo.jpeg');
+                    else if (logo === './logo.jpeg') setLogo('./logo.PNG');
+                    else if (logo === './logo.PNG') setLogo('./logo.JPG');
                     else setLogo(null);
                 }
                 if(type === 'profile') {
                     if (profile === './profile.png') setProfile('./profile.jpg');
                     else if (profile === './profile.jpg') setProfile('./profile.jpeg');
+                    else if (profile === './profile.jpeg') setProfile('./profile.PNG');
+                    else if (profile === './profile.PNG') setProfile('./profile.JPG');
                     else setProfile(null);
                 }
             };
@@ -163,7 +167,7 @@
             const current = colors[theme];
 
             // -------------------------------------------------------------
-            // [백윤성 선생님 시간표 데이터]
+            // [시간표 내용 수정 영역]
             // -------------------------------------------------------------
             const offlineClasses = [
                 {
